@@ -1,0 +1,39 @@
+class Product:
+    def __init__(self, name, price, product_type):
+        self.name = name
+        self.price = price
+        self.product_type = product_type
+
+class ProductSearch:
+    def __init__(self, products):
+        self.products = products
+
+    def search_product(self, query):
+        # Пошук товару за запитом
+        pass
+
+class ProductDisplay:
+    def __init__(self, product):
+        self.product = product
+
+    def display_product(self):
+        # Відображення інформації про товар
+        pass
+
+class ProductOrder:
+    def __init__(self, product):
+        self.product = product
+
+    def order_product(self, quantity):
+        # Замовлення товару
+        pass
+
+# Приклад використання класів
+product = Product("Phone", 500, "Electronics")
+search_engine = ProductSearch([product])
+display_engine = ProductDisplay(product)
+order_engine = ProductOrder(product)
+
+search_engine.search_product("Phone")
+display_engine.display_product()
+order_engine.order_product(1)

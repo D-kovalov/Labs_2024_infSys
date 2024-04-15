@@ -1,0 +1,8 @@
+image_path = '/content/data/hearts 3.png'
+img=cv2.imread(image_path)
+img = cv2.resize(img, (img.shape[1] // 2, img.shape[0] // 2))
+cv2_imshow(img)
+b, g, r = cv2.split(img)
+cv2_imshow(g)
+g=cv2.bitwise_not(g)
+cv2_imshow(g)                                                              

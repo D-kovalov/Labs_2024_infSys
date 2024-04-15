@@ -1,0 +1,13 @@
+def get_img(image_path):
+  img=cv2.imread(image_path)
+  return img
+def BGRsplit(img):
+  b, g, r = cv2.split(img)
+  return g
+def reverse(img):
+  return(cv2.bitwise_not(img))
+
+def main():
+  img=get_img('/content/data/hearts 2.png')
+  g=BGRsplit(img)
+  result=reverse(g) 
