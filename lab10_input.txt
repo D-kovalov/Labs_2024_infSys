@@ -1,0 +1,39 @@
+class BasicCalculator:
+    def add(self, a, b):
+        return a + b
+
+    def subtract(self, a, b):
+        return a - b
+
+    # Калькулятор не має методів для множення та ділення
+
+calculator = BasicCalculator()
+print("Addition: “ calculator.add(5,3))
+print("Subtraction: “ calculator.subtract(5,3))
+# print("Multiplication: ", calculator.multiply(5, 3)) # Не працює, метод не визначений 
+# print("Division: ", calculator.divide(5, 3)) # Не працює, метод не визначений
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+class LibraryBook:
+    def __init__(self, title, author, publication_year):
+        self.title = title
+        self.author = author
+        self.publication_year = publication_year
+        self.is_checked_out = False
+
+    def check_out(self):
+        if not self.is_checked_out:
+            self.is_checked_out = True
+            return True
+         return False
+
+    def return_book(self):
+        if self.is_checked_out:
+            self.is_checked_out = False
+            return True
+         return False
+
+# Використання коду
+book = LibraryBook("The Great Gatsby", "F. Scott Fitzgerald",1925)
+print(book.check_out())
+print(book.check_out())

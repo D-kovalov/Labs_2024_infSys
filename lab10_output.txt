@@ -1,0 +1,79 @@
+class BasicCalculator:
+    def add(self, a, b):
+        return a + b
+
+    def subtract(self, a, b):
+        return a - b
+
+class AdvancedCalculator(BasicCalculator):
+    def multiply(self, a, b):
+        return a * b
+
+    def divide(self, a, b):
+        if b == 0:
+            raise ValueError("Cannot divide by zero!")
+        return a / b
+
+calculator = AdvancedCalculator()
+print("Addition: ", calculator.add(5, 3))
+print("Subtraction: ", calculator.subtract(5, 3))
+print("Multiplication: ", calculator.multiply(5, 3))
+print("Division: ", calculator.divide(5, 3))
+/////////////////////////////////////////////////////////////////////////
+
+class LibraryBook:
+    def __init__(self, title, author, publication_year):
+        self.title = title
+        self.author = author
+        self.publication_year = publication_year
+        self.is_checked_out = False
+
+    def check_out(self):
+        if not self.is_checked_out:
+            self.is_checked_out = True
+            return True
+        return False
+
+    def return_book(self):
+        if self.is_checked_out:
+            self.is_checked_out = False
+            return True
+        return False
+
+class LibraryBookDelegate:
+    def __init__(self, book):
+        self.book = book
+
+    def check_out(self):
+        return self.book.check_out()
+
+    def return_book(self):
+        return self.book.return_book()
+
+    def get_book_info(self):
+        return {
+            'title': self.book.title,
+            'author': self.book.author,
+            'publication_year': self.book.publication_year,
+            'is_checked_out': self.book.is_checked_out
+        }
+
+    def is_book_checked_out(self):
+        return self.book.is_checked_out
+
+    def check_book_condition(self):
+        # Додатковий метод для перевірки стану книги (приклад)
+        return "The book is in good condition."
+
+# Використання коду
+book = LibraryBook("The Great Gatsby", "F. Scott Fitzgerald", 1925)
+book_delegate = LibraryBookDelegate(book)
+
+print(book_delegate.check_out())
+print(book_delegate.check_out())
+print(book_delegate.return_book())
+print(book_delegate.return_book())
+print(book_delegate.get_book_info())
+print(book_delegate.is_book_checked_out())
+print(book_delegate.check_book_condition())
+
